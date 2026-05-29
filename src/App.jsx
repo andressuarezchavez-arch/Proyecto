@@ -80,27 +80,101 @@ export default function TecniYaApp() {
       </header>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-16 text-center">
-        <h2 className="text-5xl font-bold mb-6">
-          Encuentra técnicos confiables cerca de ti
-        </h2>
+      <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="text-5xl font-bold leading-tight mb-6">
+            Encuentra técnicos confiables cerca de ti
+          </h2>
 
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-          Plataforma boliviana para solicitar servicios técnicos rápidos,
-          seguros y modernos.
-        </p>
+          <p className="text-lg text-gray-600 mb-8">
+            Solicita servicios de computadoras, electricidad,
+            plomería, cámaras de seguridad y más desde
+            una sola plataforma.
+          </p>
 
-        <button className="bg-blue-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-blue-700 transition">
-          Solicitar servicio
-        </button>
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-2xl text-lg font-semibold shadow-lg hover:scale-105 transition">
+              Solicitar servicio
+            </button>
+
+            <button className="bg-white border border-gray-300 px-6 py-3 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition">
+              Ver técnicos
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-2xl p-8">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-blue-50 rounded-2xl p-5">
+              <h3 className="font-bold text-lg mb-2">
+                💻 Técnicos PC
+              </h3>
+
+              <p className="text-gray-600 text-sm">
+                Reparación, formateo y mantenimiento.
+              </p>
+            </div>
+
+            <div className="bg-yellow-50 rounded-2xl p-5">
+              <h3 className="font-bold text-lg mb-2">
+                ⚡ Electricistas
+              </h3>
+
+              <p className="text-gray-600 text-sm">
+                Instalaciones y reparaciones eléctricas.
+              </p>
+            </div>
+
+            <div className="bg-green-50 rounded-2xl p-5">
+              <h3 className="font-bold text-lg mb-2">
+                🚿 Plomeros
+              </h3>
+
+              <p className="text-gray-600 text-sm">
+                Soluciones rápidas para tu hogar.
+              </p>
+            </div>
+
+            <div className="bg-purple-50 rounded-2xl p-5">
+              <h3 className="font-bold text-lg mb-2">
+                📷 Cámaras
+              </h3>
+
+              <p className="text-gray-600 text-sm">
+                Instalación de seguridad y monitoreo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Search */}
+      <section className="max-w-7xl mx-auto px-6 mb-12">
+        <div className="bg-white rounded-3xl shadow-lg p-6 flex flex-col md:flex-row gap-4">
+          <input
+            type="text"
+            placeholder="Buscar técnicos o servicios..."
+            className="flex-1 border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <button className="bg-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-blue-700 transition">
+            Buscar
+          </button>
+        </div>
       </section>
 
       {/* Technicians */}
       <section className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">
-            Técnicos destacados
-          </h2>
+          <div>
+            <h2 className="text-3xl font-bold">
+              Técnicos destacados
+            </h2>
+
+            <p className="text-gray-500 mt-1">
+              Encuentra técnicos verificados disponibles en tiempo real
+            </p>
+          </div>
 
           <div className="bg-white px-4 py-2 rounded-xl shadow">
             👨‍🔧 {technicians.length} técnicos activos
@@ -145,21 +219,26 @@ export default function TecniYaApp() {
                 </span>
 
                 <div className="flex gap-2">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
-                Contratar
-                </button>
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
+                    Contratar
+                  </button>
 
-                <button
-                onClick={() =>
-                alert(
-                      `📞 Contactando a ${tech.name}\n\nEspecialidad: ${tech.specialty}\nEstado: ${tech.status}\n\nTeléfono: +591 70000000`
-                     )
-    }
-    className="border border-gray-300 px-4 py-2 rounded-xl hover:bg-gray-100 transition"
-  >
-    Ver perfil
-  </button>
-</div>
+                  <button
+                    onClick={() =>
+                      alert(
+                        `📞 Contactando a ${tech.name}
+
+Especialidad: ${tech.specialty}
+Estado: ${tech.status}
+
+Teléfono: +591 70000000`
+                      )
+                    }
+                    className="border border-gray-300 px-4 py-2 rounded-xl hover:bg-gray-100 transition"
+                  >
+                    Ver perfil
+                  </button>
+                </div>
               </div>
 
               <button
@@ -173,16 +252,97 @@ export default function TecniYaApp() {
         </div>
       </section>
 
+      {/* Request Service */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="bg-white rounded-3xl shadow-xl p-8 grid md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-3xl font-bold mb-6">
+              Solicita un servicio
+            </h2>
+
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                className="w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+
+              <input
+                type="text"
+                placeholder="Tipo de servicio"
+                className="w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+
+              <textarea
+                rows="5"
+                placeholder="Describe tu problema"
+                className="w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+
+              <button
+                onClick={() =>
+                  alert("✅ Solicitud enviada correctamente")
+                }
+                className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition"
+              >
+                Enviar solicitud
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 rounded-3xl p-8 flex flex-col justify-center">
+            <h3 className="text-2xl font-bold mb-5">
+              ¿Por qué usar TecniYa?
+            </h3>
+
+            <ul className="space-y-4 text-lg">
+              <li>✅ Técnicos verificados</li>
+              <li>✅ Atención rápida</li>
+              <li>✅ Precios claros</li>
+              <li>✅ Soporte en Cochabamba y Bolivia</li>
+              <li>✅ Chat en tiempo real</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white mt-20">
-        <div className="max-w-7xl mx-auto px-6 py-10 text-center">
-          <h2 className="text-2xl font-bold mb-3">
-            TecniYa
-          </h2>
+        <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
+          <div>
+            <h2 className="text-2xl font-bold mb-3">
+              TecniYa
+            </h2>
 
-          <p className="text-gray-400">
-            Plataforma boliviana para encontrar técnicos y servicios confiables.
-          </p>
+            <p className="text-gray-400">
+              Plataforma boliviana para encontrar técnicos y servicios confiables.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold mb-3">
+              Servicios
+            </h3>
+
+            <ul className="space-y-2 text-gray-400">
+              <li>Técnicos PC</li>
+              <li>Electricistas</li>
+              <li>Plomeros</li>
+              <li>Cámaras</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold mb-3">
+              Contacto
+            </h3>
+
+            <ul className="space-y-2 text-gray-400">
+              <li>Cochabamba - Bolivia</li>
+              <li>contacto@tecniya.com</li>
+              <li>+591 70000000</li>
+            </ul>
+          </div>
         </div>
       </footer>
     </div>
