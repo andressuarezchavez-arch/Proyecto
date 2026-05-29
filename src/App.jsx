@@ -144,9 +144,22 @@ export default function TecniYaApp() {
                   {tech.status}
                 </span>
 
-                <button className="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
-                  Contratar
+                <div className="flex gap-2">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
+                Contratar
                 </button>
+
+                <button
+                onClick={() =>
+                alert(
+                      `📞 Contactando a ${tech.name}\n\nEspecialidad: ${tech.specialty}\nEstado: ${tech.status}\n\nTeléfono: +591 70000000`
+                     )
+    }
+    className="border border-gray-300 px-4 py-2 rounded-xl hover:bg-gray-100 transition"
+  >
+    Ver perfil
+  </button>
+</div>
               </div>
 
               <button
